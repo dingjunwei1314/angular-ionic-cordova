@@ -1,0 +1,117 @@
+<ion-view view-title="{{title}}">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">{{title}}</span>
+
+    <div style="position:fixed;right:3%;top:10px;z-index:99999999;color: #787878">
+		<span class="exercise_op_panel_jd">进度：{{render_topic_data.index_num}}/{{all_data.all_count}}</span>
+	</div>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: white;bottom: 0px" on-swipe-right="next_prev(0,null)" class="udf_scroller" on-swipe-left="next_prev(1,null)">
+  	<!-- <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+    </ion-refresher> -->
+    <div id="content" style="">
+		<div id="subject">
+				<div class="exercise_op_panel_question">
+	            	<span class="question_text" ng-bind-html="render_topic_data.topic">
+	            		
+	            	</span>
+   					<div class="btn_fav" is_fav="false" on-tap="to_my_fav(render_topic_data.topic_id)">
+   						<i class="fa fa-star-o" ng-class="{'faved':render_topic_data.fav}" style="font-size:14px;"></i>
+   					</div>
+	            </div>
+	            <div class="choice_pad_main" style="position:relative">
+	           		<div class="exercise_op_panel_options" is_right="0" option_id="16200" is_down="0" 
+	           		ng-repeat="option in render_topic_data.option" 
+	           		on-tap="chose_option(render_topic_data.topic_id,option.option_id,option.xuanxiang,render_topic_data.right_option_id)" 
+	           		ng-class="{'user_answer':option.option_id==render_topic_data.my_options[0]? true:false,
+	           		'user_answer1':option.option_id==render_topic_data.my_options[1]? true:false,
+	           		'user_answer2':option.option_id==render_topic_data.my_options[2]? true:false,
+	           		'user_answer3':option.option_id==render_topic_data.my_options[3]? true:false,
+	           		'user_answer4':option.option_id==render_topic_data.my_options[4]? true:false,
+	           		'right_answer':option.is_right=='1'&&render_topic_data.answer_state&&type!='mock'? true:false,
+
+	           		}">
+	           			<span>{{option.xuanxiang}}</span>
+	           			<div style="display: inline-block;" ng-bind-html="option.text">
+	           				
+	           			</div>
+	           		</div>
+	            </div>
+	            <div class='exercise_op_panel_options_dx_btn' on-tap="dx_btn(render_topic_data.topic_id)" ng-show="render_topic_data.ctype=='1'&&!render_topic_data.answer_state">确定</div>
+		</div>
+    </div>
+	<!-- 解析 -->
+	<div class="exercise_op_panel_jxparsing" ng-if="render_topic_data.answer_state&&type!='mock'" style="position:relative;">
+	    <span style="color:#6fdc52">正确</span>答案是 
+	    <div class="exercise_op_panel_jxparsing_correct" style="display:inline-block;margin-right:10px;color:#6fdc52">
+	    	{{render_topic_data.right_option}}
+	    </div>
+	    你的答案是
+	    <div class="exercise_op_panel_jxparsing_user" style="display:inline-block;margin-right:10px;color:#707070">
+	    	{{render_topic_data.my_option[0]}}
+	    	{{render_topic_data.my_option[1]}}
+	    	{{render_topic_data.my_option[2]}}
+	    	{{render_topic_data.my_option[3]}}
+	    	{{render_topic_data.my_option[4]}}
+	    </div>
+
+	    <hr style="botder-bottom:1px solid #eee;margin:10px 0"/>
+	    <div>智能解析：</div>
+	    <div class="jxparsing-bottom" style="line-height:2em;padding-bottom:20px;" ng-bind-html="render_topic_data.answer_comment">
+	    	
+	    </div>
+
+	    <div class="clearfix" style="height:30px;line-height:30px;text-align:center;width:80%;margin:0 auto;margin-bottom:.96rem;">
+	        <div class="exercise_op_panel_jxparsing_sc btn_fav fll" on-tap="to_my_fav(render_topic_data.topic_id)" style="width:50%;">
+	            <i class="fa fa-star-o" ng-class="{'faved':render_topic_data.fav}" style="font-size:1.2em"></i>
+	            <span>收藏</span>
+	        </div>
+	        <div class="exercise_op_panel_back flr" style="width:50%;" on-tap="feedback(all_data.e_code)">
+	            <i class="fa fa-hand-paper-o" style="font-size:1.2em"></i>
+	            <span>我要纠错</span>
+	        </div>
+	    </div>
+	</div>
+	
+  </ion-content>
+
+  <!-- 底部 -->
+	<div class="exercise_op_panel_bottom" style="width:100%;height:.96rem;position:fixed;left:0;bottom:0;background:#333;color:#fff">
+		<div class="exercise_op_panel_prev fll" style="width:20%;height:100%;text-align:center;" ng-show="render_topic_data.index_num>1" on-tap="next_prev(0,null)">
+			<i class="fa fa-angle-left" aria-hidden="true" style="height:.96rem;line-height:.96rem;font-size:.5rem;"></i>
+		</div>
+		<div class="exercise_op_panel_result_pad" on-tap="open_result_pad()" ng-if="type!='ctb'&&type!='faved'">
+			<img src="img/v1.4/result_card.png" style="width:.3rem;height:.3rem;">
+			<p style="color:#fff;">答题卡</p>
+		</div>
+
+		<div timing-device my-time="timer_number"  my-open="is_open_timer_number" ng-if="type=='kslx'||type=='sll'">
+		</div>
+		
+		<div class="exercise_op_panel_tg" ng-if="type=='zj'||type=='mock'" on-tap="next_prev(1,null)">
+			<img src="img/v1.4/tg.png" style="width:.3rem;height:.3rem;">
+			<p class="exercise_op_panel_tg_txt" style="color:#fff">跳过</p>
+		</div>
+		<div class="exercise_op_panel_next flr" style="width:20%;height:100%;text-align:center;" ng-show="render_topic_data.index_num<all_data.all_count" on-tap="next_prev(1,null)">
+			<i class="fa fa-angle-right" aria-hidden="true" style="height:.96rem;line-height:.96rem;font-size:.5rem;"></i>
+		</div>
+	</div>
+	<div style="position: fixed;background-color: white;left: 0;top: 44px;bottom: 0;right: 0;z-index: 9;overflow-y: auto;" ng-show="is_show_result_pad">
+		<div class="result_pad2" style="margin: 20px auto auto; padding: 0px; font-size: 12px; color: gray; max-width: 1000px; display: block;">
+
+		    <div class="result_pad2_count_down" style="color:#f27b22;font-size:14px;padding-left:3%">考试用时：<span>11</span>分钟</div>
+
+			<div class="result_pad2_contain" style="margin:0 auto 1rem;max-width:600px;overflow:auto;padding-left:.1rem">
+				<div class="exercise_op_panel_answer_rs" ng-class="{'active':list.answer_state}" ng-repeat="list in all_data.list" on-tap="next_prev(2,list.index_num)">
+				{{list.index_num}}
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+	<div class="result_pad2_btn_pk_submit" style="z-index: 9999" on-tap="finally_submit_result()" ng-show="is_show_result_pad">生成测试报告</div>
+</ion-view>

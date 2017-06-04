@@ -1,0 +1,15 @@
+<ion-view view-title="购买课程">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">购买课程</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: white;bottom: 0px" on-swipe-right="left_back()" class="udf_scroller">
+  	<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+    </ion-refresher>
+    
+  </ion-content>
+
+  
+</ion-view>

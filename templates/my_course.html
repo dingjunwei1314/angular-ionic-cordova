@@ -1,0 +1,49 @@
+<ion-view view-title="看课记录">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+  
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">看课记录</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: #eee;" class="udf_scroller">
+      <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+      </ion-refresher>
+      <div class="personage_center_my_lesson_record_con">
+      <div class="record_info">
+        <div>
+          <item style="color:#787878;font-size:.28rem">看课时长</item>
+          <div>
+            <item style="margin-top:0.1rem;color:#f60;font-size:.28rem">{{data.total_time}}</item>
+            <item style="margin-top:0.1rem;font-size:.28rem;color:#787878">分</item>
+          </div>
+          
+        </div>
+        <div>
+          <item style="color:#787878;font-size:.28rem">超过人数</item>
+          <item style="margin-top:0.1rem;color:#f60;font-size:.28rem">{{data.ranking}}%</item>
+        </div>    
+        </div>
+        
+        <ul class="record_list" style="background:white;" ng-repeat="dayData in data.item">
+          <div style="border-bottom:1px solid #eee;height:.75rem;align-items:flex-end;display:flex;box-sizing:border-box;margin:0rem .2rem;padding-bottom:.1rem;padding-left:.1rem">{{dayData.day_time}}</div>
+          
+          <li on-tap="enter_course(dayData.course.product_id,dayData.course.video_id)">
+            <img style="width:2.5rem;height:1.6rem" image-lazy-src="{{dayData.course.img_src}}"  src="img/substitution.jpg" alt="">
+            <div style="width:3.75rem;height:1.6rem;display:flex;flex-direction:column;justify-content:space-between;">
+              <p style="text-overflow:ellipsis;white-space:nowrap;font-size:.3rem;overflow:hidden;color:black">{{dayData.course.product_name}}</p>
+              <div style="line-height:.33rem;">
+                <item>学习</item>
+                <item style="color:#f60">至</item>
+                <item>{{dayData.course.video_name}}</item>
+              </div>
+              <p class="last_time" style="color:#f60">已看至{{dayData.course.time}}</p>
+              
+            </div>
+          </li>
+          
+        </ul>
+       
+      </div>
+  </ion-content>
+</ion-view>

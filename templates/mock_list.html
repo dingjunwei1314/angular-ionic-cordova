@@ -1,0 +1,40 @@
+<ion-view view-title="模拟考试">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">模拟考试</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: white;bottom: 0px" on-swipe-right="left_back()" class="udf_scroller">
+  	<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+    </ion-refresher>
+    <div class="practice_test_list_l">
+
+      <div class="practice_test_list_group_l" style="width:100%;padding:0 3%;background:#fff;" ng-repeat="item in mock_list_data.items" on-tap="enter_mock(item.id)">
+           <div class=" practice_test_list_group" style="height:1.36rem;line-height:1.36rem;border-bottom: 1px solid #eee;color: #787878">
+              <div class="media-body clearfix" style="font-size:.3rem;">
+                  <p class="fll">{{item.name}}</p>
+                  <i class="fa fa-angle-right" style="float:right;font-size:.42rem;color:#BCBcBc;line-height:1.36rem;"></i>
+              </div>
+
+          </div>
+      </div>
+      <div class="practice_test_list_record_l" style="margin-top: 0.2rem; width: 100%; padding: 0px 3%; background: rgb(255, 255, 255);">
+          <div class="practice_test_list_record" style="height:1.36rem;line-height:1.36rem;border-bottom:1px solid #eee;">
+              <div class="media-body clearfix" style="font-size:.3rem;color: #787878">
+                  <p class="fll">我的考试记录</p>
+                  <p class="flr ">最新测试成绩：<span style="color:#2dc37c">{{mock_list_data.pk_score.pk_score}}</span>分</p>
+              </div>
+          </div>
+      </div>
+
+    </div>
+    <div class="practice_test_list_s" style="width: 100%; height: 100%; padding-top: 1.5rem;background: rgb(255, 255, 255);position: fixed;left: 0;right: 0;top: 0;bottom: 0" ng-show="is_open_con">
+        <div style="color:#333;font-size:.28rem;text-align:center;">考试时间150分</div>
+        <div style="color:#6fdc52;font-size:.24rem;text-align:center;margin-top:.5rem;">提示：一旦提前交卷，即生成单次成绩单</div>
+        <div class="practice_test_list_sure" on-tap="sure_enter_mock('mock')">马上开始</div>
+    </div>
+  </ion-content>
+
+  
+</ion-view>

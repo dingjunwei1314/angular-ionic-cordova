@@ -1,0 +1,97 @@
+<ion-view view-title="帖子详情">
+	<ion-header-bar class="bar-stable" style="background-color: #2dc37c;border-bottom: 1px solid #eee">
+		<span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+			<i class="ion-chevron-left" style="line-height: 44px;color: white;padding-left: .2rem"></i>
+		</span>
+		
+    	<span style="margin: 0 auto;line-height: 32px;color: white">帖子详情</span>
+
+   	</ion-header-bar>
+   	
+   	<ion-content lazy-scroll  overflow-scroll="true" scroll="true" style="overflow:auto;background:rgb(237, 241, 247);-webkit-transform: translateZ(0px)"  class="udf_scroller">
+   		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+      	</ion-refresher>
+
+      	<div class="nurse_detail_con">
+	 		<div class="con">
+				<div style="margin:0rem .3rem">
+					<img 
+					image-lazy-src="{{nurse_detail.data.user_img}}" 
+					src="img/substitution.jpg"   
+					class="fll" 
+					style="width:.8rem;height:.8rem;border-radius: 100%">
+					<div class="fll" style="margin-left:.25rem">
+						<p style="color:#313131;font-size:.28rem;width:4rem;text-overflow:ellipsis;white-space:nowrap;overflow:hidden">{{nurse_detail.data.nickname}}</p>
+						<p style="font-size:12px;color:#787878;margin-top:.08rem">{{nurse_detail.data.to_time}}</p>
+					</div>
+					<div class="clb"></div>
+				</div>
+				
+				<div style="position:relative;margin:0rem .3rem;margin-top:.3rem;font-size:.28rem">
+					<span style="color:#2dc37c;float:left;margin-right:.2rem">{{nurse_detail.data.room_name}}</span>
+					<p style="color:#313131;float:left" class="text_con" ng-bind-html="nurse_detail.data.content">
+					
+					</p>
+					<div style="clear:both"></div>
+				</div>
+
+				<div class="img_con"  style="margin:0rem .3rem">
+					<img 
+					ng-repeat="img in nurse_detail.data.img_path"
+					image-lazy-src="{{img.thumb}}" 
+					src="img/substitution.jpg"  
+					>
+					<div class="clb"></div>
+				</div>
+			</div>
+
+			<div class="control" style="padding:.2rem 0rem;border-top:1px solid #ececec;margin-top:.25rem">
+				
+				<div class="fav" on-tap="fav(nurse_detail.data.talk_id,nurse_detail.data.zan_count)">
+					<img 
+					ng-if="nurse_detail.data.is_zan==1" 
+					src="img/v1.5/fav_active.png"  
+					style="width:.35rem">
+
+					<img 
+					ng-if="nurse_detail.data.is_zan==0" 
+					src="img/v1.5/fav.png" 
+					style="width:.35rem">
+				
+				<span style="vertical-align:center;color:#898989;font-size:.24rem">{{nurse_detail.data.zan_count}}</span>
+				</div>
+
+				<div class="con">
+					<img src="img/v1.5/pl.png" class="async_img" async_img="img/v1.5/pl.png" style="width:.35rem">
+					<span style="vertical-align:center;color:#898989;font-size:.24rem">{{nurse_detail.data.reply_count}}</span>
+				</div>
+				<div class="share">
+					<img src="img/v1.5/share.png" class="async_img" async_img="img/v1.5/share.png" style="width:.3rem">
+				</div>
+				<p style="clear:both"></p>
+			</div>
+		</div>
+
+		<div class="answer_con" style="margin-top: .2rem;background: white">
+			<ul>
+				<li ng-repeat="reply in nurse_detail.data.reply" style="padding: .2rem 0rem">
+					<div style="margin:0rem .3rem">
+						<div>
+						<img src="{{reply.user_img}}" style="width:.8rem;height:.8rem;float: left;border-radius: 100%">
+						<div class="fll" style="margin-left:.25rem">
+							<p style="color:#313131;font-size:.28rem;width:4rem;text-overflow:ellipsis;white-space:nowrap;overflow:hidden" class="talker_name">{{reply.nickname}}</p>
+							<p style="font-size:12px;color:#787878;margin-top:.08rem">{{reply.to_time}}</p>
+						</div>
+							<div style="clear:both"></div>
+						</div>
+						
+						<p style="font-size:.28rem;margin-top:.3rem;color:#313131" ng-bind-html="reply.content">
+							
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</ion-content>
+   	
+</ion-view>	

@@ -1,0 +1,114 @@
+<ion-view view-title="题库">
+  <ion-header-bar class="bar-stable">
+    <span style="margin: 0 auto;line-height: 32px;color: white">题库</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: #eee;bottom: 50px;" class="udf_scroller" >
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+    </ion-refresher>
+    <div class="clearfix" style="width:100%;height:2.12rem;background:#2dc37c;padding:.6rem 3% 0;line-height:.42rem;color:#fff;font-size:.22rem;margin-top:-1px;">
+
+    <div class="fll exercise_center_ctb" style="width:50%;border-right:1px solid rgba(0,0,0,0.1);" on-tap="enter_daily_practice('ctb')">
+        <img  image-lazy-src="{{exercise_center_data.header_img}}" src="img/substitution.jpg" class="img-circle fll" style="width:.9rem;height:.9rem;border-radius: 100%" >
+        <div class="flr" style="text-align:left;padding-right:.8rem;">
+            <p style="color:#fff!important;"><span style="font-size:.3rem;color:#fff!important;">{{exercise_center_data.error_num}}</span> /道</p>
+            <p style="color:#fff!important;">全部错题</p>
+        </div>
+
+    </div>
+     <div class="fll exercise_center_fav" style="width:50%;padding-left:.8rem;" on-tap="enter_daily_practice('faved')">
+        <p style="color:#fff!important;"><span style="font-size:.3rem;color:#fff!important;">{{exercise_center_data.fav_count}}</span> /道</p>
+        <p style="color:#fff!important;">考题收藏</p>
+    </div>
+</div>
+
+<div >
+    <ul class="clearfix exercise_center_ksrk" style="margin:.28rem .2rem;padding:.28rem .22rem;background:#fff;border-radius:10px;">
+        <li class="fll exercise_center_kslx" style="border-bottom:1px solid #eee;border-right:1px solid #eee;" on-tap="enter_daily_practice('kslx')">
+            <div class="clearfix" style="width:2rem;margin:0 auto;">
+                <img src="img/v1.4/kszx_1.png" style="width:.26rem;margin-right:5px;margin-top:3px" class='fll'>
+                <div class="fll">
+                    <p style="font-size:.28rem;">快速练习</p>
+                    <p style="font-size:.21rem;margin-top:.16rem;color:#999">快速随机做题</p>
+                </div>
+            </div>
+
+
+
+        </li>
+        <li class="fll exercise_center_mock" style="border-bottom:1px solid #eee;" on-tap="enter_mock_list()">
+            <div class="clearfix" style="width:2rem;margin:0 auto;margin-left:.8rem;">
+                <img src="img/v1.4/kszx_2.png" style="width:.26rem;margin-right:5px;margin-top:3px" class="fll">
+                <div class="fll">
+                    <p style="font-size:.28rem;">真题模考</p>
+                    <p style="font-size:.21rem;margin-top:.16rem;color:#999">模拟真实考试</p>
+                </div>
+            </div>
+        </li>
+        <li class="fll exercise_center_lnzt" style="border-right:1px solid #eee;" on-tap="enter_daily_practice('kslx','历年真题')">
+            <div class="clearfix" style="width:2rem;margin:0 auto;margin-top:.15rem;">
+                <img src="img/v1.4/kszx_3.png" style="width:.26rem;margin-right:5px;margin-top:3px" class="fll">
+                <div class="fll">
+                    <p style="font-size:.28rem;">历年真题</p>
+                    <p style="font-size:.21rem;margin-top:.16rem;color:#999">精选历年原题</p>
+                </div>
+            </div>
+        </li>
+        <li class="fll exercise_center_zjlx" style="" on-tap="enter_exercise_list()">
+            <div class="clearfix" style="width:2.3rem;margin:0 auto;position:relative;margin-left:.7rem;margin-top:.15rem;">
+                <img src="img/v1.4/kszx_4.png" style="width:.26rem;margin-left:5px;margin-top:3px" class="fll">
+                <div class="fll">
+                     <p style="font-size:.28rem;">章节练习</p>
+                    <p style="font-size:.21rem;margin-top:.16rem;color:#999">按章节巩固练习</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div style="width:100%;height:2.2rem;background:#fff;margin-bottom:.2rem;font-size:.22rem">
+    <h4 style="line-height:.76rem;height:.76rem;padding:0 3%;font-size:.24rem;color:#999">练习工具</h4>
+    <ul class="clearfix" style="text-align:center;margin-top:.2rem;">
+        
+        <li class="fll exercise_center_fav" style="width:33.3%;padding-bottom:15px;" on-tap="enter_daily_practice('faved')">
+            <img src="img/v1.4/fav.png" style="width:.45rem;height:.45rem;">
+            <p style="line-height:.66rem;color:#999">考题收藏</p>
+        </li>
+        <li class="fll exercise_center_ctb" style="width:33.3%;padding-bottom:15px;" on-tap="enter_daily_practice('ctb')">
+            <img src="img/v1.4/ct.png" style="width:.44rem;height:.46rem;">
+            <p style="line-height:.66rem;color:#999">错题本</p>
+        </li>
+    </ul>
+</div>
+<div style="width:100%;height:3.8rem;background:#fff;font-size:.26rem;">
+    <h4 style="line-height:.76rem;height:.76rem;padding:0 3%;font-size:.24rem;color:#999">数据中心</h4>
+    <ul class="clearfix" style="text-align:center;line-height:.44rem;padding-bottom:.24rem;margin-top:10px;color:#999">
+        <li class="fll" style="width:33.3%;;">
+            <p style="margin-bottom:.1rem;color:#999">累计练题</p>
+            <p style="color:#999"><span style="font-size:.30rem;color:#f17212;">{{exercise_center_data.all_num}}</span> 道</p>
+        </li>
+        <li class="fll" style="width:33.3%;">
+            <p style="margin-bottom:.1rem;color:#999">超过人数</p>
+            <p style="color:#999"><span style="font-size:.30rem;color:#9ac0f8;">{{exercise_center_data.ranking}}</span> %</p>
+        </li>
+        <li class="fll" style="width:33.3%;">
+            <p style="margin-bottom:.1rem;color:#999">已收藏</p>
+            <p style="color:#999"><span style="font-size:.30rem;color:#f17212;">{{exercise_center_data.fav_count}}</span> 道</p>
+        </li>
+    </ul>
+    <hr style="margin:0 .6rem;">
+    <ul class="clearfix" style="text-align:center;line-height:.44rem;padding-bottom:.24rem;margin-top:10px;">
+        <li class="fll" style="width:33.3%;">
+            <p style="margin-bottom:.1rem;color:#999">正确</p>
+            <p style="color:#999"><span style="font-size:.30rem;color:#6fdc52;">{{exercise_center_data.correct_num}}</span> 道</p>
+        </li>
+        <li class="fll" style="width:33.3%;">
+            <p style="margin-bottom:.1rem;color:#999">错误</p>
+            <p style="color:#999"><span style="font-size:.30rem;color:#f17212;">{{exercise_center_data.error_num}}</span> 道</p>
+        </li>
+        <li class="fll" style="width:33.3%;">
+            <p style="margin-bottom:.1rem;color:#999">正确率</p>
+            <p style="color:#999"><span style="font-size:.30rem;color:#707070;">{{exercise_center_data.right_ranking}}</span> %</p>
+        </li>
+    </ul>
+</div>
+  </ion-content>
+</ion-view>

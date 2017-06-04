@@ -1,0 +1,69 @@
+<ion-view view-title="做题记录">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">做题记录</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: white;bottom: 0px"  class="udf_scroller">
+  	<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+    </ion-refresher>
+    <div class="exercise_record_div1" style="font-size:.26rem;background:#fff;color:#999;">
+        <div class="clearfix" style="text-align:center;height:1.7rem;padding-top:.45rem;border-bottom:1px solid #eee;margin:0 .45rem;">
+            <div class="fll" style="width:50%;line-height:.45rem;">
+                <p>累计练题</p>
+                <p><span style="color:#f17212">{{topic_record.all_num}}</span> 道</p>
+            </div>
+            <div class="fll" style="width:50%;line-height:.45rem;">
+                <p>超过人数</p>
+                <p><span>{{topic_record.ranking}}</span> %</p>
+            </div>
+        </div>
+        <ul class="clearfix" style="text-align:center;height:1.48rem;padding-top:.45rem;">
+            <li class="fll" style="width:33%;height:.45rem;line-height:.45rem;border-right:1px solid #eee;">
+                <p style="margin-top:-.2rem">正 确</p>
+                <p><span style="color:#6fdc52">{{topic_record.correct_num}}</span> 道</p>
+            </li>
+            <li class="fll" style="width:33%;height:.45rem;line-height:.45rem;border-right:1px solid #eee;">
+                <p style="margin-top:-.2rem">错 误</p>
+                <p><span style="color:#f89d9a">{{topic_record.error_num}}</span> 道</p>
+            </li>
+            <li class="fll" style="width:33.3%;height:.45rem;line-height:.45rem;">
+                <p style="margin-top:-.2rem">正确率</p>
+                <p><span style="color:#707070">{{topic_record.right_ranking}}</span> %</p>
+            </li>
+        </ul>
+    </div>
+    <div class="exercise_record_div2 exercise_record_item" style="font-size: 0.26rem; color: rgb(153, 153, 153); padding: 0.2rem 0.2rem 0.4rem 0.7rem; margin-top: 0.2rem; position: relative; min-height: 440px; background: rgb(255, 255, 255);">
+    <h2 style="font-size:.26rem;margin:0;color: #787878">历史记录</h2>
+    <div style="font-size: 0.3rem; text-align: center; height: 2rem; line-height: 2rem; display: none; background: rgb(255, 255, 255);" class="exercise_record_item_k">
+        暂无数据
+    </div>
+    <img src="img/v1.4/ztjl_sz.png" alt="" style="width:.28rem;height:.28rem;position:absolute;left:.26rem;top:.2rem;z-index:1">
+    <ul>
+        <li class="exercise_record_item_list" ng-class="{'active':$index==0? true:false}" item_id="2017-05-06" ng-repeat="list in topic_record.record">
+            <h4 style="font-size:.26rem;height:.5rem;line-height:.5rem;padding-left:10px;margin-bottom:8px;">{{list.time}}</h4>
+            <div class="clearfix" style="height:.8rem;">
+                <div class="fll exercise_record_all" style="width:1.97rem;line-height:.45rem;padding-left:10px;border-right:1px solid #eee;" prevent_event="0">
+                    <p style="margin-top:-4px;">练题量</p>
+                    <p><span style="color:#f17212;">{{list.count}}</span> 道</p>
+                </div>
+                <div class="fll exercise_record_right" style="width:2.32rem;line-height:.45rem;text-align:center;border-right:1px solid #eee;" prevent_event="0">
+                    <p style="margin-top:-4px;">正确</p>
+                    <p><span style="color:#6fdc52">{{list.right_count}}</span> 道</p>
+                </div>
+                <div class="fll exercise_record_wrong" style="width:1.64rem;line-height:.45rem;padding-right:10px;text-align:right;" prevent_event="0">
+                    <p style="margin-top:-4px;">错误</p>
+                    <p><span style="color:#f89d9a">{{list.wrong_count}}</span> 道</p>
+                </div>
+            </div>
+            <div class="exercise_record_item_circle"></div>
+            <div style="width:1px; height:2.88rem;border-left:1px solid #eee;position:absolute;left:-.3rem;bottom:-.4rem;"></div>
+        </li>
+        
+    </ul>
+</div>
+  </ion-content>
+
+  
+</ion-view>

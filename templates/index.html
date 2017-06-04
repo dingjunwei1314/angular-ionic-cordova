@@ -1,0 +1,136 @@
+<ion-view view-title="壹医考">
+	<ion-header-bar class="bar-stable">
+		<span style="margin: 0 auto;line-height: 32px;color: white;font-size: 16px;">壹医考</span>
+	</ion-header-bar>
+	<ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: #eee;overflow-x: hidden; overflow-y:visible;bottom: 50px" class="udf_scroller">
+		<!-- banner -->
+		<ion-slide-box style="height: 3.55rem" auto-play="true" does-continue="true" delegate-handle="slideboximgs">
+			<ion-slide style="height: 3.55rem" on-tap="enter_banner(banner)" ng-repeat="banner in index_page_data.banner">
+				<img style="width: 100%;height: 3.55rem"  src="{{banner.img_path}}" alt="">
+			</ion-slide>
+		</ion-slide-box>
+		<!--cate-->
+		<div class="index_page_cate">
+			<ul class="index_page_ksxx_nav">
+                <li class="fll index_page_ksxx_zxkt" on-tap="enter_daily_practice('sll')">
+                    <img  src="img/v1.4/index_1.png"/>
+                    <p>每日一练</p>
+                </li>
+                <li class="fll index_page_rg" on-tap="enter_mock_list()">
+                    <img  src="img/v1.4/index_3.png"/>
+                    <p>真题模考</p>
+                </li>
+                <li class="fll index_page_pk" on-tap="enter_nurse_index()">
+                    <img  src="img/v1.4/index_v2.png"/>
+                    <p>护士圈</p>
+                </li>
+          		<li class="fll index_page_ksxx_bkzx" on-tap="enter_info()">
+                    <img  src="img/v1.4/index_4.png"/>
+                    <p>备考资讯</p>
+                </li>
+            </ul>
+        </div>
+        <!--学习记录-->
+    	<div class="index_page_record full_width">
+            <ul class="clearfix " style="height:1.24rem;width:100%;padding-bottom:.12rem;">
+                <li class="fll index_page_exercise_record" on-tap="enter_topic_record()">
+                    <div class="fll" style="width:.56rem;height:1.1rem;margin-right:.3rem;">
+                        <img  src="img/v1.4/index_5.png" style="width:.56rem;">
+                    </div>
+                    <div class="fll" style="line-height:.45rem;">
+                        <p style=""><span style="font-size:.3rem;color:rgb(254,110,114);">{{index_page_data.item_1.topic_num}}</span>&nbsp;&nbsp;道</p>
+                        <p style="font-size:.22rem;">累计练题</p>
+                    </div>
+                </li>
+                <li class="fll index_page_video_record"  on-tap="enter_watch_record()">
+                    <div class="fll" style="width:.56rem;height:1.1rem;margin-right:.3rem;">
+                        <img  src="img/v1.4/index_6.png" style="width:.56rem;">
+                    </div>
+                    <div class="fll" style="line-height:.45rem;">
+                        <p style=""><span style="font-size:.3rem;color:rgb(254,110,114);">{{index_page_data.item_1.total_time}}</span>&nbsp;&nbsp;分钟</p>
+                        <p style="font-size:.22rem;">看课时长</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--热门课程-->
+		<div class="full_width index_page_heat_product">
+    	    <div style="padding-top:.3rem;padding-bottom:.3rem;">
+                <h4 style="width:100%;height:.27rem;line-height:.28rem;font-size:.26rem;padding-left:.3rem;position:relative">
+                <span style="width:4px;height:.18rem;background:#2dc37c;position:absolute;left:0rem;top:0.07rem"></span>
+                    热门课程
+                </h4>
+            </div>
+            
+            <ul class="clearfix">
+                <li class="fll index_page_rmkc" ng-repeat="list in index_page_data.item_4" on-tap="enter_course_detail(list.prouct_id)">
+                    <div style="height:1.96rem;width:100%;margin-bottom:.2rem;border-radius:5px;overflow:hidden;">
+                        <img  image-lazy-src="{{list.imgsrc}}" src="img/substitution.jpg" style="width:100%;height:100%;"/>
+                    </div>
+                    <div style="width:100%;height:.8rem;overflow:hidden;font-size:.26rem">
+                        {{list.tit}}
+                    </div>
+                    <p style="color:#d15702;line-height:.4rem;font-size:.22rem">
+                        ¥&nbsp&nbsp<span style="font-size:.26rem;">{{list.price}}</span>
+                    </p>
+                </li>
+            </ul>
+            <div class="index_page_gdkc" style="margin-top:.1rem" on-tap="enter_course_list()">
+                <p style="color:rgb(102,102,102);font-size:.26rem;height:.46rem;line-height:.46rem;text-align:center;">
+                    <span>更多课程&nbsp;</span>
+                    <img  src="img/v1.4/icon.png" alt="" style="width:.15rem;height:.24rem;position:relative;top:-1px">
+                </p>
+            </div>
+    	</div>
+    	<!--免费课程-->
+		<div class="index_page_ghfx_1111">
+			<div class="full_width" style="width:100%;padding:0 .2rem;height:8.5rem;background:#fff;margin-bottom:.2rem">
+			    <div style="padding-top:.3rem;padding-bottom:.3rem;">
+		            <h4 style="width:100%;height:.27rem;line-height:.28rem;font-size:.26rem;border-left:4px solid #2dc37c;padding-left:.3rem;">
+		                免费好课
+		            </h4>
+		        </div>
+		        <ul class="clearfix" style="height:7rem;">
+		            <li class="fll index_page_ghfx" 
+                    ng-repeat="list in index_page_data.item_5"   
+                    on-tap="enter_free_course(list.video_id)"
+                    style="width:3.34rem;line-height:.4rem;font-size:.22rem;margin-bottom:.2rem;">
+		                <div style="height:1.96rem;width:100%;margin-bottom:.2rem;border-radius:5px;overflow:hidden;">
+		                    <img  image-lazy-src="{{list.img}}" src="img/substitution.jpg" style="width:100%;height:100%;"/>
+		                </div>
+		                <div style="width:100%;height:.8rem;overflow:hidden;font-size:.26rem">
+		                    {{list.name}}
+		                </div>
+		                <p style="color:#d67340;line-height:.4rem;font-size:.22rem;margin-left:2px">
+		                    {{list.click_count}}人学习
+		                </p>
+		            </li>
+		        </ul>
+
+		        <div class="index_page_gdgh">
+		            <p style="color:rgb(102,102,102);font-size:.26rem;height:.46rem;line-height:.46rem;text-align:center;">
+		                <span>更多课程&nbsp;</span>
+		                 <img  src="img/v1.4/icon.png" alt="" style="width:.15rem;height:.24rem;position:relative;top:-1px">
+		            </p>
+		        </div>
+
+			</div>
+		</div>
+		<!--考试攻略-->
+		<div class="index_page_ksgl full_width"  info_id="">
+		    <div style="padding-top:.3rem;padding-bottom:.3rem;">
+	            <h4 style="width:100%;height:.27rem;line-height:.28rem;font-size:.26rem;border-left:4px solid #2dc37c;padding-left:.3rem;">
+	                考试攻略
+	            </h4>
+	        </div>
+	        <div class="index_page_ksgl_img" on-tap="enter_recom_info(index_page_data.item_6[0])">
+	            <img  image-lazy-src="{{index_page_data.item_6[0].image}}" src="img/substitution.jpg" style="width:100%;height:100%;"/>
+	            <p style="position:absolute;bottom:0;left:0;width:100%;line-height:.5rem;font-size:.2rem;overflow:hidden;color:#fff;padding-left:.1rem;background:rgba(0,0,0,.35)">
+	                {{index_page_data.item_6[0].title}}
+	            </p>
+	        </div>
+
+		</div>
+
+	</ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view view-title="章节练习">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">章节练习</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: white;bottom: 0px" on-swipe-right="left_back()" class="udf_scroller">
+  	<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+    </ion-refresher>
+    <ul style="margin-bottom:0px;background: #fff; padding-top:2px;margin-top:10px;">
+        <li style="position:relative;border-bottom:1px solid #ccc;padding:0 3% 15px;margin-top:15px"
+        ng-repeat="list in exercise_list_data.list"
+        on-tap="enter_exercise_chapter('zj',list.chapter_id)"
+        >
+            <h4 style="font-size:14px;color:#717171;">{{list.title}}</h4>
+            <p style="height:2.5em;line-height:2.5em;font-size:12px;color: #898989">
+            	练题量:<span>{{list.topic_num}}</span>&nbsp;&nbsp;&nbsp;<span>{{list.topic_all_num}}</span>人在学
+            </p>
+            <div style="height:10px;width:60%;background:#ccc;overflow:hidden;border-radius:3px;">
+                <div  style="height: 10px; border-radius: 3px;background: rgb(45, 195, 124);" 
+                ng-style="{'width':list.topic_num/list.topic_all_num*100+'%'}"
+                >
+                	
+                </div>
+            </div>
+            <i class="fa fa-edit" style="font-size:20px;color:#2dc37c;position:absolute;right:3%;top:50%;margin-top:-10px;"></i>
+        </li>
+    </ul>    
+  </ion-content>
+
+  
+</ion-view>

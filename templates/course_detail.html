@@ -1,0 +1,190 @@
+<ion-view view-title="壹医考">
+
+	<ion-content lazy-scroll scroll="false" overflow-scroll="true" style="overflow:auto;" class="udf_scroller">
+		<div class="course_detail_div">
+		<div style="position:fixed;top:0px;width:100%;z-index:3">
+			<div id="video_wap" class="img_wap active">
+
+
+				<div class="back" on-touch="back()">
+					<img  style="width:30px;margin-top:15px" src="img/course_detail/back.png"   alt="">
+				</div>
+				<img class="banner" image-lazy-src="{{course_detail_data.pro_img_src}}{{course_detail_data.img}}" src="img/substitution.jpg" alt="" 
+				ng-hide="course_detail_data.is_show_product_banner">
+
+				<img class="start_img"  src="img/play.png" 
+				on-tap="begin_play(course_detail_data.product_id,course_detail_data.id)"
+				ng-hide="course_detail_data.is_show_play_btn"
+				>
+
+				<video  poster="{{pro_img_src}}" type="video/mp4" id="video_play" src="{{course_detail_data.playing_src}}" autoplay="" controls></video>
+
+			</div>
+			<div class="function_control_wap">
+				<span class="person_total fll">在线人数：{{course_detail_data.sale}}{{course_detail_data.click_count}}人</span>
+				<div class="outline_play flr">
+					<img src="img/down.png"  alt="">
+					<p class="">缓存</p>
+				</div>
+
+				<div class="store flr" style="width: 36px;text-align: center;" on-tap="handle_fav(course_detail_data.is_playing_id)">
+					<img src="img/store.png"  alt="">
+					
+					<p ng-if="course_detail_data.fav==1" class="is_store" ng-class="{'active':course_detail_data.fav==1}">已收藏</p>
+
+					<p ng-if="course_detail_data.fav==0" class="is_store" ng-class="{'active':course_detail_data.fav==1}">收藏</p>
+					
+				</div>
+
+				<div class="share flr" on-tap="share(course_detail_data.tit,course_detail_data.is_playing_id)">
+					<img src="img/share.png"  alt="">
+					<p class="">分享</p>
+				</div>
+				
+				<div style="clear:both"></div>	
+			</div>
+			<div class="tab_title clearfix">
+				<div class="tab_intro" ng-class="{'active':tab_ishide==1? true:false}" on-tap="tab_change(1)">
+					<div>简介</div>
+				</div>
+				<div class="tab_syllabus" ng-class="{'active':tab_ishide==2? true:false}" on-tap="tab_change(2)">
+					<div>课程表</div>	
+				</div>
+				<div class="tab_discuss" ng-class="{'active':tab_ishide==3? true:false}" on-tap="tab_change(3)">
+					<div>讨论区</div>	
+				</div>
+			</div>
+		</div>
+
+		<div class="tab_cont" scroll="true">
+			<!-- 课程简介 -->
+			<div class="inntro_cont" ng-show="tab_ishide==1">
+				<div class="pad3" style="padding-bottom:10px">
+					<h4>{{course_detail_data.tit}}{{course_detail_data.title}}</h4>
+					<p style="font-size:15px;color:#787878">名师直播，浓缩考点精华；快速提升应试能力</p>
+					
+					<div class="inntro_price clearfix" 
+					ng-if="course_detail_data.hide_buy_button!=1&&course_detail_data">
+						<p class="fll">
+							<span style="color:#f60;font-size:16px">￥</span>
+							<span style="color:#f60;font-size:22px">{{course_detail_data.price}}</span>
+							<span style="margin-left:10px;" ng-if="course_detail_data.discount==1">原价：
+								<span style="text-decoration:line-through">
+									￥{{course_detail_data.ori_price}}
+								</span>
+							</span>
+							<span style="color:#787878;font-size:12px;margin-left:20px">课时：78</span>
+							<span style="color:#787878;font-size:12px;margin-left:20px">有效期：12个月</span>
+						</p>
+						
+					</div>
+					<div class="inntro_time clearfix"
+					ng-if="course_detail_data.hide_buy_button!=1&&course_detail_data"
+					>
+						<p style="font-size:12px" class="fll">购买人数：<span>{{course_detail_data.sale}}</span></p>
+						<p class="flr go_to_buy" 
+						ng-if="course_detail_data.is_buy==0"
+						on-tap="go_to_buy()"
+						>购买</p>
+						<p class="flr go_to_buy" 
+						on-tap="begin_play(course_detail_data.product_id,course_detail_data.id)" 
+						ng-if="course_detail_data.is_buy==1"
+						>开始学习</p>
+					</div>
+					
+				</div>
+				
+
+				<div class="intro_course pad3" id="intro_course" ng-if="course_detail_data.detail" ng-bind-html="course_detail_data.detail" style="padding-bottom:50px;min-height:300px;padding-top:10px">
+					{{course_detail_data.synopsis}}
+				</div>
+
+				<div class="intro_course pad3" id="intro_course" ng-if="!course_detail_data.detail" ng-bind-html="course_detail_data.synopsis" style="padding-bottom:50px;min-height:300px;padding-top:10px">
+					
+				</div>
+
+			</div>
+
+			<!-- 课程表 -->
+			
+			<div ng-show="tab_ishide==2" curriculum-schedule></div>
+			
+			
+			<!-- 讨论区 -->
+			<div class="discuss_cont" style="background:white" ng-show="tab_ishide==3">
+				<ul ng-if="course_detail_data.pl.length!=0">
+					
+					<li ng-repeat="pl in course_detail_data.pl">
+						<div class="student">
+							<div style="width:100%;margin-left:0">
+								<img image-lazy-src="{{pl.headimgurl}}" src="img/substitution.jpg"  class="person_img" alt="" style="width:.5rem;height:.5rem;border-radius:100%;float:left">
+								<div style="float:right;width:87%">
+									
+									<p ng-if="pl.nickname!=null" style="color:rgb(154,192,248);display:inline-block;width:50%">{{pl.nickname}}
+									
+									</p>
+									
+									<p ng-if="pl.nickname==null" style="color:rgb(154,192,248);display:inline-block;width:50%">学员
+									
+									</p>
+									
+
+									<span class="flr">{{pl.time}}</span>
+								</div>
+								<div style="clear:both"></div>
+							</div>
+							<p style="margin-top:5px">{{pl.content}}</p>
+							
+						</div>
+						
+						<div class="teacher" ng-repeat="reply in pl.reply">
+							<p><span>{{reply.tea_name}}回复：</span>{{reply.content}}</p>
+						</div>
+						
+					</li>
+					
+				</ul>
+
+				<p ng-if="course_detail_data.pl.length==0" style="text-align:center;padding-top:30px;color: #787878">暂无相关评论</p>
+			</div>
+		</div>
+		<p class="goto_discuss" on-tap="discuss()" ng-show="tab_ishide==3">参与讨论，请老师答疑</p>
+
+		<!-- <div class="outline_play_cont">
+			<div class="tit">
+				<span class="fll">选集</span>
+				<span class="fll">当前清晰度：720P</span>
+				<i class="fa fa-times flr close"></i>
+				
+			</div>	
+			<div class="list">
+				<div class="study_video">
+					<p class="cate">当前在学：</p>
+					<p class="list_p" 
+					</p>
+				</div>
+				
+				<div class="outline_video">
+					<p class="cate">全部课程：</p>
+					{{#download}}
+					<p class="list_p" file="{{file}}" vid="{{vid}}{{video_id}}"  label="{{label}}">
+						<i class="fa fa-circle-o"></i>
+						{{name}}
+					</p>
+					{{/download}}
+				</div>
+				<div class="con_wap">
+					<p class="slect_all active fll">全选</p>
+					<p class="begin_store fll">确定缓存</p>
+					<div style="clear:both"></div>
+				</div>
+			</div>	
+		</div> -->
+
+	</div>
+	</ion-content>
+
+</ion-view>
+
+
+

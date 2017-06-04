@@ -1,0 +1,109 @@
+<ion-view>
+	<ion-header-bar class="bar-stable">
+		<span style="margin: 0 auto;line-height: 32px;color: white">个人中心</span>
+	</ion-header-bar> 
+	<ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: #eee;bottom: 50px" class="udf_scroller">
+		<div>
+        <div class="pad3 clearfix" style="width:100%;height:3rem;background-color:#2dc37c;background-size:100% 100%;padding-bottom:30px;position:relative;">
+            <div style="position:absolute;left:0;top:0;z-index:1;width:100%;height:100%;">
+                <div class="person_center_login_t clearfix" style="padding:1.3rem 3% 0;position:relative;">
+                    <div class="fll" style="height:50px;width:50px;border-radius:50%;text-align:center;">
+                        <img  image-lazy-src="{{person_center_data.user_img}}" class="img-circle" src="img/substitution.jpg" style="width:50px;height:50px;border-radius: 100%">
+                    </div>
+
+                    <div class="personage_center_login_message" style="width:.32rem;position:absolute;right:3%;top:.25rem;">
+                        <img  src="img/new_v/index_page_message.png" style="width:100%;"/>
+                    </div>
+                    <div class="fll person_center_login_txt"  style="font-size:14px;line-height:26px;padding-left:10px">
+                        
+                        <p style="color:#fff">{{person_center_data.user_name}}</p>
+                        <p style="color:#fff">{{person_center_data.user_tel}}</p>
+                    </div>
+
+                    <div style="padding:.2rem;padding-right:3%;position:absolute;right:0;top:1rem;">
+                        <div class="personage_center_edition" style="padding:2px .3rem;font-size:.2rem;border-radius:15px;border:1px solid #fff;display:inline-block;color:#fff;">
+                             <img src="img/v1.4/grzx_11.png" style="width:16px;height:11px;margin-top:-2px">
+                            编辑
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+           
+           
+        </div>
+        <div class="clearfix" style="text-align:center;margin-bottom:10px;height:50px;padding-top:5px;background:#fff;">
+            <div class="personage_center_myorder pad3 fll" style="width:50%;height:40px;line-height:40px;font-size:14px;background:#fff;;color:#717171;border-right:1px solid #eee;">
+                <img src="img/v1.4/grzx_12.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-4px">
+                我的订单
+            </div>
+
+            <div class="personage_center_yhq pad3 fll hide_if_not_rush show_if_android" style="width:50%;height:40px;line-height:40px;font-size:14px;background:#fff;;color:#717171">
+                <img src="img/v1.4/grzx_2.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+                我的优惠券
+            </div>
+        </div>
+
+
+
+
+
+
+        <div on-tap="enter_my_course()" class="personage_center_my_course_btn pad3 clearfix" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;;color:#717171;">
+            <img src="img/v1.4/grzx_3.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+            <span style="display:inline-block;width:88%;border-bottom:1px solid #eee;">
+            我的课堂
+            </span>
+        </div>
+        
+        <div on-tap="enter_watch_record()" class="personage_center_kkjl pad3 clearfix" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;;color:#717171;">
+            <img src="img/v1.4/grzx_4.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px">
+            <span style="display:inline-block;width:88%;border-bottom:1px solid #eee;">
+            看课记录
+            </span>
+            
+        </div>
+       
+        <div class="personage_center_outline_strore_btn pad3 clearfix" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;color:#717171;margin-bottom:10px;">
+            <img src="img/v1.4/grzx_5.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+            缓存下载
+        </div>
+
+
+
+        <div class="personage_center_my_strore_btn pad3 clearfix" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;;color:#717171">
+            <img src="img/v1.4/grzx_6.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+            <span style="display:inline-block;width:88%;border-bottom:1px solid #eee;">
+            我的收藏
+            </span>
+            <!--
+            <i class="fa fa-angle-right" style="float:right;font-size:16px;height:50px;line-height:48px;color:#BCBcBc"></i>
+            -->
+        </div>
+        <div class="personage_center_error pad3 clearfix" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;;color:#717171;">
+            <img src="img/v1.4/grzx_7.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+            <span style="display:inline-block;width:88%;border-bottom:1px solid #eee;">
+                我的错题
+            </span>
+
+        </div>
+
+        <div class="personage_center_mock pad3 clearfix" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;;margin-bottom:10px;color:#717171">
+            <img src="img/v1.4/grzx_8.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+            我的模拟考试
+        </div>
+        <div class="personage_center_account pad3 clearfix" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;;margin-bottom:10px;color:#717171">
+            <img src="img/v1.4/grzx_9.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+            账号设置
+        </div>
+
+
+        <div class="personage_center_exit pad3 clearfix" on-tap="exit()" style="width:100%;height:50px;line-height:50px;font-size:14px;background:#fff;text-align:center;color:#ff362f">
+            <img src="img/v1.4/grzx_10.png" style="vertical-align: middle;width:16px;height:18px;margin-right:5px;margin-top:-2px">
+            退出当前账号
+        </div>
+
+    </div>
+
+	</ion-content>
+</ion-view>

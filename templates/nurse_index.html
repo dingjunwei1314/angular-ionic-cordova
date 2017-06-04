@@ -1,0 +1,162 @@
+<ion-view view-title="医师圈">
+	<ion-header-bar class="bar-stable" style="background-color: #2dc37c;border-bottom: 1px solid #eee">
+		<span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+			<i class="ion-chevron-left" style="line-height: 44px;color: white;padding-left: .2rem"></i>
+		</span>
+		
+    	<span style="margin: 0 auto;line-height: 32px;color: white">医师圈</span>
+
+   	</ion-header-bar>
+   	<ul class="nurse_circle_index_ul" style="z-index: 999999999;margin-top: 44px">
+		<li ng-class="{'active':activeCate==0}" on-tap="slide(0)">最新</li>
+		<li ng-class="{'active':activeCate==1}" on-tap="slide(1)">一周热门</li>
+		<span ng-class="{'active':activeCate==1}"></span>
+	</ul>
+   	
+   	<ion-content lazy-scroll  overflow-scroll="true" scroll="true" style="overflow:auto;background: white;-webkit-transform: translateZ(0px);padding-top: 44px"  class="udf_scroller">
+   		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+      	</ion-refresher>
+
+      	<ion-slide-box style="height: 3.55rem" 
+      	auto-play="false" 
+      	does-continue="false" 
+      	delegate-handle="slideboximgs" 
+      	show-pager="false" 
+      	active-slide="0" 
+      	on-slide-changed="slideHasChanged(index)"
+      	class="nurse_circle_swiper"
+      	>
+			<ion-slide style="height: 3.55rem">
+				<ul>
+					<li ng-repeat="item_new in nurse_index_new.data">
+				 		<div class="con">
+							<div style="margin:0rem .3rem">
+								<img 
+								image-lazy-src="{{item_new.user_img}}" 
+								src="img/substitution.jpg"   
+								class="fll" 
+								style="width:.8rem;height:.8rem;border-radius: 100%">
+								<div class="fll" style="margin-left:.25rem">
+									<p style="color:#313131;font-size:.28rem;width:4rem;text-overflow:ellipsis;white-space:nowrap;overflow:hidden">{{item_new.nickname}}</p>
+									<p style="font-size:12px;color:#787878;margin-top:.08rem">{{item_new.to_time}}</p>
+								</div>
+								<div class="clb"></div>
+							</div>
+							
+							<div style="position:relative;margin:0rem .3rem;margin-top:.3rem;font-size:.28rem">
+								<span style="color:#2dc37c;float:left;margin-right:.2rem">{{item_new.room_name}}</span>
+								<p style="color:#313131;float:left" class="text_con" ng-bind-html="item_new.content">
+								
+								</p>
+								<div style="clear:both"></div>
+							</div>
+
+							<div class="img_con"  style="margin:0rem .3rem">
+								<img 
+								ng-repeat="img in item_new.img_path"
+								image-lazy-src="{{img.thumb}}" 
+								src="img/substitution.jpg"  
+								>
+								<div class="clb"></div>
+							</div>
+						</div>
+
+						<div class="control" style="padding:.2rem 0rem;border-top:1px solid #ececec;margin-top:.25rem">
+							
+							<div class="fav" on-tap="fav(item_new.talk_id,item_new.zan_count)">
+								<img 
+								ng-if="item_new.is_zan==1" 
+								src="img/v1.5/fav_active.png"  
+								style="width:.35rem">
+
+								<img 
+								ng-if="item_new.is_zan==0" 
+								src="img/v1.5/fav.png" 
+								style="width:.35rem">
+							
+							<span style="vertical-align:center;color:#898989;font-size:.24rem">{{item_new.zan_count}}</span>
+							</div>
+
+							<div class="con" on-tap="enter_detail(item_new.talk_id)">
+								<img src="img/v1.5/pl.png" class="async_img" async_img="img/v1.5/pl.png" style="width:.35rem">
+								<span style="vertical-align:center;color:#898989;font-size:.24rem">{{item_new.reply_count}}</span>
+							</div>
+							<div class="share">
+								<img src="img/v1.5/share.png" class="async_img" async_img="img/v1.5/share.png" style="width:.3rem">
+							</div>
+							<p style="clear:both"></p>
+						</div>
+					
+					</li>
+
+				</ul>
+			</ion-slide>
+			<ion-slide style="height: 3.55rem">
+				<li ng-repeat="item_new in nurse_index_hot.data">
+			 		<div class="con">
+						<div style="margin:0rem .3rem">
+							<img 
+							image-lazy-src="{{item_new.user_img}}" 
+							src="img/substitution.jpg"   
+							class="fll" 
+							style="width:.8rem;height:.8rem;border-radius: 100%">
+							<div class="fll" style="margin-left:.25rem">
+								<p style="color:#313131;font-size:.28rem;width:4rem;text-overflow:ellipsis;white-space:nowrap;overflow:hidden">{{item_new.nickname}}</p>
+								<p style="font-size:12px;color:#787878;margin-top:.08rem">{{item_new.to_time}}</p>
+							</div>
+							<div class="clb"></div>
+						</div>
+						
+						<div style="position:relative;margin:0rem .3rem;margin-top:.3rem;font-size:.28rem">
+							<span style="color:#2dc37c;float:left;margin-right:.2rem">{{item_new.room_name}}</span>
+							<p style="color:#313131;float:left" class="text_con" ng-bind-html="item_new.content">
+							
+							</p>
+							<div style="clear:both"></div>
+						</div>
+
+						<div class="img_con"  style="margin:0rem .3rem">
+							<img 
+							ng-repeat="img in item_new.img_path"
+							image-lazy-src="{{img.thumb}}" 
+							src="img/substitution.jpg"  
+							>
+							<div class="clb"></div>
+						</div>
+					</div>
+
+					<div class="control" style="padding:.2rem 0rem;border-top:1px solid #ececec;margin-top:.25rem">
+						
+						<div class="fav" on-tap="fav(item_new.talk_id,item_new.zan_count)">
+							<img 
+							ng-if="item_new.is_zan==1" 
+							src="img/v1.5/fav_active.png"  
+							style="width:.35rem">
+
+							<img 
+							ng-if="item_new.is_zan==0" 
+							src="img/v1.5/fav.png" 
+							style="width:.35rem">
+
+							<span style="vertical-align:center;color:#898989;font-size:.24rem">{{item_new.zan_count}}</span>
+						</div>
+
+						<div class="con">
+							<img src="img/v1.5/pl.png" class="async_img" async_img="img/v1.5/pl.png" style="width:.35rem">
+							<span style="vertical-align:center;color:#898989;font-size:.24rem">{{item_new.reply_count}}</span>
+						</div>
+						<div class="share">
+							<img src="img/v1.5/share.png" class="async_img" async_img="img/v1.5/share.png" style="width:.3rem">
+						</div>
+						<p style="clear:both"></p>
+					</div>
+				
+				</li>
+			</ion-slide>
+		</ion-slide-box>
+      	
+		
+		
+   	</ion-content>
+   	
+</ion-view>	

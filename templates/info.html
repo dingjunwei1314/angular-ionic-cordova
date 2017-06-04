@@ -1,0 +1,94 @@
+<ion-view view-title="资讯列表">
+	<style>
+		.active{border-bottom: 1px solid #118b95;color: #118b95}	
+	</style>
+	<ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+		<span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+			<i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+		</span>
+		
+    	<span style="margin: 0 auto;line-height: 32px;color: #787878">资讯列表</span>
+
+   	</ion-header-bar>
+   	
+	<div class="toTop ion-arrow-up-c" prevent_event="0" ng-show="is_show_toTop" on-touch="toTop()"><span></span></div>
+   	<ion-content overflow-scroll="true" scroll="true" style="overflow:auto;background: white;-webkit-transform: translateZ(0px)" on-scroll="watch_scroll()" on-swipe-right="left_back()" class="udf_scroller">
+   		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()" distance="1%">
+      	</ion-refresher>
+      	<div class="info_container_info_cate">
+			<ul>
+				<li cate="quanbu" on-touch="change_cate(1,'')">
+					<p class="tit" ng-class="{'p_active':tab_ishide==1? true:false}" style="font-weight: 700">全部</p>
+					
+				</li>
+				<li cate="dongtai" on-touch="change_cate(2,'考试动态')">
+					<p class="tit" ng-class="{'p_active':tab_ishide==2? true:false}">考试动态</p>
+					
+				</li>
+				<li cate="ziliao" on-touch="change_cate(3,'学习资料')">
+					<p class="tit" ng-class="{'p_active':tab_ishide==3? true:false}">学习资料</p>
+					
+				</li>
+				<li cate="dagang" on-touch="change_cate(4,'考试大纲')">
+					<p class="tit" ng-class="{'p_active':tab_ishide==4? true:false}">考试大纲</p>
+					
+				</li>
+				<li cate="zixun" on-touch="change_cate(5,'其他资讯')">
+					<p class="tit" ng-class="{'p_active':tab_ishide==5? true:false}">其他资讯</p>
+					
+				</li>
+			</ul>
+		</div>
+		<div class="info_list_info-list" style="margin-top: 0px">
+			<div style="height: 160px;" ng-repeat="push_data in info_list_data.push_list" ng-show="is_show_banner">
+				<img style="width: 100%;height: 160px;" ng-style="{opacity:banner_opacity}" image-lazy-src="{{push_data.img_path}}" src="img/substitution.jpg">	
+			</div>
+			<ul class="info_list_info-list-ul">
+				<li class="info_list_page_list_li" on-tap="enter_info_detail(data.url)" ng-repeat="data in info_list_data.list|filter:{type_name:type_name}" style="position:relative">
+					<div class="info_wap" style="border-bottom:1px solid #eee;padding-bottom:15px">
+						
+
+						<div ng-if="data.img_src==null? false:true">
+							<div class="info_wap_left">
+								<p class="tit"><span style="{{data.target_color}}">&nbsp{{data.type_name}}</span>{{data.title}}</p>
+								<p style="padding:15px 0px" class="detail">{{data.summary_text}}</p>
+							</div>
+							
+							<div class="info_wap_right">
+								<img  style="width:100%" image-lazy-src="{{data.img_src}}" src="img/substitution.jpg"  alt="" />
+							</div>
+						</div>
+
+
+						
+						<div class="info_wap_left" ng-if="data.img_src==null? true:false" style="width:100%">
+							<p class="tit"><span>&nbsp{{data.type_name}}</span>{{data.title}}</p>
+							<p style="padding:15px 0px" class="detail">{{data.summary_text}}</p>
+						</div>
+						
+
+
+						<div style="clear:both"></div>
+
+
+						<div style="width:60%">
+							<div style="display:inline-block;width:140px">
+							<img  style="width:12px;margin-right:3px"  src="img/my_store/info_time.png" alt="" />	
+							<span style="color:#bbb;position:relative;top:1px;font-size:12px">{{data.time}}</span>
+							</div>
+							<div style="float:right">
+								<img  style="width:12px;margin-right:3px" src="img/my_store/info_click.png" alt="" />	
+								<span style="position:relative;top:1px;color:#bbb;font-size:12px;">{{data.click_count}}</span>
+							
+							<div>
+						</div>
+					
+				    
+				    <div>
+				</li>
+			</ul>
+		</div>
+		
+   	</ion-content>
+   	
+</ion-view>	

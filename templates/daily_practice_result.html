@@ -1,0 +1,46 @@
+<ion-view view-title="练习报告">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">练习报告</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: white;"  class="udf_scroller">
+    <div class="result_pad_grade" style="position:relative;font-size:13px;padding-top:5%;padding-left:3%;padding-right:3%;color: #787878;border-bottom: 1px solid #eee">
+        <div>
+            <p class="color:#f27b22">你答对了：</p>
+            <div style="width:100px;height:100px;line-height:100px;text-align:center;border-radius:50%;border:2px solid #f27b22;margin:0 auto 20px;">
+                <span style="font-size:34px;color:#f27b22">{{result_data.right_num}}</span>
+                <span style="font-size:16px;">/{{result_data.all_count}}道</span>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <span style="margin-right:20px;">总用时：{{result_data.all_time}}</span>
+            <span>每题平均用时：{{result_data.mean_time}}秒</span>
+        </div>
+    </div>
+
+    <div class="result_pad_contain" style="margin:0 auto .5rem;max-width:600px;overflow:auto;padding-left:.1rem">
+            <div class="exercise_report_answer_item_panel">
+
+              <div class="exercise_op_panel_answer_rs"
+              ng-repeat="result_option in result_data.data" 
+              ng-class="{'active':result_option.status==1? true:false,'active1':result_option.status==2? true:false}" style="color: #787878"
+              on-tap="enter_analysis(result_data.e_code,3,$index+1)"
+              >
+                {{$index+1}}
+              </div>
+            
+            </div>
+    </div>
+  </ion-content>
+
+  <div class="exercise_report_bottom" style="position: fixed; bottom: 0px; left: 0px; width: 100%; height: 0.96rem; line-height: 0.96rem; color: rgb(255, 255, 255); text-align: center; display: block; background: rgb(51, 51, 51);">
+    <div class="exercise_report_qbjx fll" style="width:49%;border-right: 1px solid #484848" on-tap="enter_analysis(result_data.e_code,1)">
+      全部解析
+    </div>
+    <div class="exercise_report_ctjx fll" style="width:50%;" on-tap="enter_analysis(result_data.e_code,2)">
+      错题解析
+    </div>
+  </div>
+</ion-view>

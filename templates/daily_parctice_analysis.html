@@ -1,0 +1,88 @@
+<ion-view view-title="全部解析">
+  <ion-header-bar class="bar-stable" style="background-color: white;border-bottom: 1px solid #eee">
+    <span style="position: absolute;left: 0px;top: 0px;height: 44px;width: 80px;text-align: left;" on-touch="back()">
+      <i class="ion-chevron-left" style="line-height: 44px;color: #787878;padding-left: .2rem"></i>
+    </span>
+    <span style="margin: 0 auto;line-height: 32px;color: #787878">全部解析</span>
+
+    <div style="position:fixed;right:3%;top:10px;z-index:99999999;color: #787878">
+		<span class="exercise_op_panel_jd">进度：{{render_topic_data.index_num}}/{{all_data.all_count}}</span>
+	</div>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: white;bottom: 0px"  class="udf_scroller" on-swipe-right="next_prev(0)" on-swipe-left="next_prev(1)">
+    <div id="content" style="">
+      <div id="subject">
+        <div class="exercise_op_panel_question">
+          <span class="question_text" ng-bind-html="render_topic_data.topic">
+          </span>
+          <div class="btn_fav" is_fav="false" on-tap="to_my_fav(render_topic_data.topic_id)">
+            <i class="fa fa-star-o" ng-class="{'faved':render_topic_data.fav}" style="font-size:14px;"></i>
+          </div>
+        </div>
+        <div class="choice_pad_main" style="position:relative">
+          <div class="exercise_op_panel_options" 
+            ng-repeat="option in render_topic_data.option" 
+            ng-class="{'user_answer':option.option_id==render_topic_data.my_options[0]? true:false,
+            'user_answer1':option.option_id==render_topic_data.my_options[1]? true:false,
+            'user_answer2':option.option_id==render_topic_data.my_options[2]? true:false,
+            'user_answer3':option.option_id==render_topic_data.my_options[3]? true:false,
+            'user_answer4':option.option_id==render_topic_data.my_options[4]? true:false,
+            'right_answer':option.is_right=='1'? true:false,
+            }">
+              <span>{{option.xuanxiang}}</span>
+              <div style="display: inline-block;" ng-bind-html="option.text">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 解析 -->
+    <div class="exercise_op_panel_jxparsing" style="position:relative;">
+        <span style="color:#6fdc52">正确</span>答案是 
+        <div class="exercise_op_panel_jxparsing_correct" style="display:inline-block;margin-right:10px;color:#707070">
+          <span ng-if="render_topic_data.option[0].is_right=='1'">A</span>
+          <span ng-if="render_topic_data.option[1].is_right=='1'">B</span>
+          <span ng-if="render_topic_data.option[2].is_right=='1'">C</span>
+          <span ng-if="render_topic_data.option[3].is_right=='1'">D</span>
+          <span ng-if="render_topic_data.option[4].is_right=='1'">E</span>
+        </div>
+        你的答案是
+        <div class="exercise_op_panel_jxparsing_user" style="display:inline-block;margin-right:10px;color:#707070">
+          <span ng-show="!render_topic_data.my_options[0]&&render_topic_data">--</span>
+          <span ng-show="render_topic_data.option[0].option_id==render_topic_data.my_options[0]&&render_topic_data">A</span>
+          <span ng-show="render_topic_data.option[1].option_id==render_topic_data.my_options[0]&&render_topic_data">B</span>
+          <span ng-show="render_topic_data.option[2].option_id==render_topic_data.my_options[0]&&render_topic_data">C</span>
+          <span ng-show="render_topic_data.option[3].option_id==render_topic_data.my_options[0]&&render_topic_data">D</span>
+          <span ng-show="render_topic_data.option[4].option_id==render_topic_data.my_options[0]&&render_topic_data">E</span>
+        </div>
+        
+        <hr style="botder-bottom:1px solid #eee;margin:10px 0"/>
+        <div>智能解析：</div>
+        <div class="jxparsing-bottom" style="line-height:2em;padding-bottom:20px;" ng-bind-html="render_topic_data.answer_comment">
+          
+        </div>
+
+        <div class="clearfix" style="height:30px;line-height:30px;text-align:center;width:80%;margin:0 auto;margin-bottom:.96rem;">
+            <div class="exercise_op_panel_jxparsing_sc btn_fav fll" on-tap="to_my_fav(render_topic_data.topic_id)" style="width:50%;">
+                <i class="fa fa-star-o" ng-class="{'faved':render_topic_data.fav}" style="font-size:1.2em"></i>
+                <span>收藏</span>
+            </div>
+            <div class="exercise_op_panel_back flr" style="width:50%;" on-tap="feedback(all_data.e_code)">
+                <i class="fa fa-hand-paper-o" style="font-size:1.2em"></i>
+                <span>我要纠错</span>
+            </div>
+        </div>
+    </div>
+    
+  </ion-content>
+  <!-- 底部 -->
+    <div class="exercise_op_panel_bottom" style="width:100%;height:.96rem;position:fixed;left:0;bottom:0;background:#333;color:#fff">
+      <div class="exercise_op_panel_prev fll" style="width:20%;height:100%;text-align:center;" ng-show="render_topic_data.index_num>1" on-tap="next_prev(0)">
+        <i class="fa fa-angle-left" aria-hidden="true" style="height:.96rem;line-height:.96rem;font-size:.5rem;"></i>
+      </div>
+      
+      <div class="exercise_op_panel_next flr" style="width:20%;height:100%;text-align:center;" ng-show="render_topic_data.index_num<all_data.all_count" on-tap="next_prev(1)">
+        <i class="fa fa-angle-right" aria-hidden="true" style="height:.96rem;line-height:.96rem;font-size:.5rem;"></i>
+      </div>
+    </div>
+</ion-view>

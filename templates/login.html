@@ -1,0 +1,20 @@
+<ion-view view-title="">
+	<ion-header-bar class="bar-stable">
+    	<span style="margin: 0 auto;line-height: 32px;color: white">手机号登录</span>
+   	</ion-header-bar>
+	
+	<ion-content>
+		<div class="list" style="width: 90%;margin: 0 auto;text-align: center;padding-top: 20px">
+			<label class="item item-input">
+		    	<input ng-model="$parent.login_phone" type="text" placeholder="手机号">
+			</label>
+		  	<label class="item item-input">
+		    	<input ng-model='$parent.login_password' type="password" placeholder="密码">
+			</label>
+		 	<button on-touch="login()" class="button button-light" style="width: 100%;margin-top: 30px;color: white;background: #2dc37c;border-radius: 0px">
+			 	登录
+			</button>
+			
+		</div>
+	</ion-content>
+</ion-view>

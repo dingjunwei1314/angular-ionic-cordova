@@ -1,0 +1,42 @@
+<ion-view view-title="视频课程">
+  <ion-header-bar class="bar-stable">
+    <span style="margin: 0 auto;line-height: 32px;color: white">视频列表</span>
+  </ion-header-bar>
+  <ion-content lazy-scroll overflow-scroll="true" style="overflow:auto;background: #eee;bottom: 50px" class="udf_scroller">
+      <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh(list_course.courseid)" distance="1%">
+      </ion-refresher>
+      <ul class="course_list_page_course_list_ul">
+      <li ng-repeat="list_course in list">
+        <a native-ui-sref="tab.course_detail({courseId:list_course.courseid})" >
+        <div class="course_wap">    
+          <div class="img_wap">
+            <img  image-lazy-src="{{list_course.imgsrc}}" src="img/substitution.jpg"  alt="">
+          </div>
+          <div class="detail_wap">
+            <p style="color:#333;">{{list_course.tit}}</p>
+            <p style="color:#999">{{list_course.des}}</p>
+            <p style="color:#ccc">{{list_course.time}}</p>
+          </div>
+          <div style="clear:both"></div>
+        </div>
+      
+        <div class="num_wap" ng-if="list_course.is_buy==0? true:false">
+         
+          <span ng-if="list_course.discount==0? true:false">￥&nbsp{{list_course.price}}</span>
+          
+          <span ng-if="list_course.discount==1? true:false">￥&nbsp{{list_course.price}}</span>
+          <span ng-if="list_course.discount==1? true:false" style="text-decoration:line-through;font-size:12px;margin-left:5px">￥{{list_course.ori_price}}</span>
+          
+          </span>
+          <p class="num">有{{list_course.sale}}人正在学习</p>
+        </div>
+        
+        <div class="num_wap" ng-if="list_course.is_buy==1? true:false">
+          <span>已经购买，可以开始学习啦</span>
+          </span><span style="color:rgb(235,87,48);float:right;font-size:12px;width:1.25rem;height:0.4rem;text-align:center;line-height:0.4rem;margin-top:0.15rem;border-radius:10px;border:1px solid rgb(235,87,48)">开始学习</span>
+        </div>
+        </a>
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>
