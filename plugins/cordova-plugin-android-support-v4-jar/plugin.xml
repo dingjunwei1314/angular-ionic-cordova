@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-android-support-v4-jar"
+    version="23.2.1">
+
+  <name>Android Support v4</name>
+  <license>MIT</license>
+  <keywords>candroid,support,library,v4,jar</keywords>
+  <repo>https://github.com/pbakondy/cordova-plugin-android-support-v4-jar</repo>
+  <issue>https://github.com/pbakondy/cordova-plugin-android-support-v4-jar/issues</issue>
+
+  <platform name="android">
+    <lib-file src="android-support-v4.jar" />
+  </platform>
+
+</plugin>

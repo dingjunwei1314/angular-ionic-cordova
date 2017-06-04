@@ -1,0 +1,36 @@
+{
+  "name": "cordova-plugin-android-support-v4-jar",
+  "version": "23.2.1",
+  "description": "Android Support v4",
+  "cordova": {
+    "id": "cordova-plugin-android-support-v4-jar",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pbakondy/cordova-plugin-android-support-v4-jar.git"
+  },
+  "keywords": [
+    "cordova",
+    "android",
+    "support",
+    "v4",
+    "jar",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Peter Bakondy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pbakondy/cordova-plugin-android-support-v4-jar/issues"
+  },
+  "homepage": "https://github.com/pbakondy/cordova-plugin-android-support-v4-jar#readme"
+}
