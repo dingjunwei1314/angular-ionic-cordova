@@ -1,0 +1,197 @@
+    #subject{
+        width: 100%;
+        margin: auto;
+        padding:20px 4% 0;
+
+    }
+    .subject-title{
+        font-size:14px;
+        padding-bottom:10px;
+        position: relative;
+    }
+    .exercise_op_panel_question{
+        padding-bottom:26px;
+        font-size: 14px;
+        border-bottom:1px solid #eee;
+        position:relative;
+        color: #787878
+    }
+    
+    .exercise_op_panel_options{
+        border-radius: 2px;
+        padding: 12px 3% 13px 0;
+        background: #FFF;
+        cursor: pointer;
+        font-size: 14px;
+        color: #787878
+    }
+    .exercise_op_panel_options span{
+        display:inline-block;
+        width:20px;
+        height:20px;
+        border-radius:50%;
+        margin-right:5px;
+        text-align:center;
+    }
+
+    .exercise_op_panel_options.user_answer{
+        color:#f89d9a
+    }
+    .exercise_op_panel_options.user_answer span{
+        color:#fff;
+        background:#f89d9a;
+    }
+    .exercise_op_panel_options.user_answer1{
+        color:#f89d9a
+    }
+    .exercise_op_panel_options.user_answer1 span{
+        color:#fff;
+        background:#f89d9a;
+    }
+    .exercise_op_panel_options.user_answer2{
+        color:#f89d9a
+    }
+    .exercise_op_panel_options.user_answer2 span{
+        color:#fff;
+        background:#f89d9a;
+    }
+    .exercise_op_panel_options.user_answer3{
+        color:#f89d9a
+    }
+    .exercise_op_panel_options.user_answer3 span{
+        color:#fff;
+        background:#f89d9a;
+    }
+    .exercise_op_panel_options.user_answer4{
+        color:#f89d9a
+    }
+    .exercise_op_panel_options.user_answer4 span{
+        color:#fff;
+        background:#f89d9a;
+    }
+
+    .exercise_op_panel_options.right_answer{
+        color:#6fdc52;
+    }
+    .exercise_op_panel_options.right_answer span{
+        color:#fff;
+        background:#6fdc52;
+    }
+
+    .options:hover{
+        background: #F3F3F3;
+        text-decoration: none;
+        border-color: #909090;
+        color: #25bb9b;
+    }
+    .submitForm{
+        text-align: center;
+        position:absolute;
+        left:0;
+        bottom:0;
+    }
+
+    .submitForm input{
+        display: inline-block;
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+        color: #FFF;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        line-height: normal;
+        outline: 0;
+        white-space: nowrap;
+        margin-bottom: 30px;
+    }
+    .advance,.exercise_op_panel_parsing{
+        background: #f60;
+    }
+    /*.icon:before{
+        border-radius: 50%;
+        background: #00bc9b;
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        vertical-align: middle;
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 2px;
+    }*/
+    .glyphicon-ok{
+        color: #00bc9b;
+    }
+    .glyphicon-ok:before{
+        position: relative;
+        top:-2px;
+        height: 14px;
+    }
+    .icons{
+        border: 1px solid #DDD;
+        width: 14px;
+        height: 14px;
+        background: #FFF;
+        display: inline-block;
+        margin-right: 3px;
+        cursor: pointer;
+        position: relative;
+        top: 3px;
+        border-radius: 50%;
+    }
+    .exercise_op_panel_jxparsing{
+        padding: 20px;
+        background:#f2f4f5;
+        color: #787878
+    }
+
+    .correct{
+        margin-bottom: 20px;
+    }
+    .faved {
+        color:#f7b07a;
+    }
+    .exercise_op_panel_answer_rs{
+        display:inline-block;
+        width:.77rem;
+        height:.77rem;
+        line-height:.77rem;
+        text-align:center;
+        border:1px solid #eee;
+        border-radius:5px;
+        float:left;
+        margin:.31rem;
+        
+    }
+
+    .exercise_op_panel_answer_rs div{
+        
+        text-align:center;
+    }
+    .jxparsing-bottom p{
+        padding-bottom:20px;
+    }
+
+    #subject .btn_fav{width:20px;height:20px;position:absolute;right:4px;bottom:0;margin-left:10px;z-index:3;cursor: pointer;font-size:18px;margin-bottom:5px;}
+
+    .exercise_op_panel_options_dx_btn{width: 100%;height: .7rem;line-height: .7rem;background: #2dc37c;color: #fff;text-align: center;font-size: .3rem;margin-top:1rem;margin-bottom: .2rem;}
+
+    .result_pad2_contain .active{background:#6fdc52;border-color:#fff!important;color:#fff!important}
+    .result_pad_contain .active{background:#6fdc52;border-color:#fff!important;color:#fff!important}
+    .result_pad_contain .active1{background:#f89d9a;border-color:#fff!important;color:#fff!important}
+    .result_pad2_contain .active1{background:#f89d9a;border-color:#fff!important;color:#fff!important}
+    .result_pad2_btn_pk_submit{width: 100%; height: 0.96rem; line-height: 0.96rem; font-size: 0.3rem; color: rgb(255, 255, 255); text-align: center; position: absolute; left: 0px; bottom: 0px; display: block; background: rgb(51, 51, 51);}
+    .exercise_op_panel_result_pad{width: 30%; height: 0.96rem; text-align: center; padding-top: 0.15rem; display: block; left: 20%;position: absolute;top: 0px}
+
+    .exercise_op_panel_time{width: 30%; height: 0.96rem; text-align: center; padding-top: 0.15rem; display: block;position: absolute;left: 3.5rem;top: 0rem}
+    .exercise_op_panel_tg{position: absolute; right: 20%; width: 30%; height: 0.96rem; text-align: center; padding-top: 0.15rem; display: inline-block;}
+    .practice_test_list_sure{width:2.69rem;height:.8rem;line-height:.8rem;background:#2dc37c;margin:0 auto;border-radius:.4rem;text-align:center;color:#fff;margin-top:1.5rem;font-size:.26rem;}
+
+    .exercise_record_item_list{width:6.06rem;height:1.77rem;ling-height:.45rem;background:#fff;margin-top:.4rem;box-shadow:1px 1px 10px 1px #eee;padding:.1rem 0;position:relative;color: #787878}
+    .exercise_record_item_list h4{color: #787878}
+    .exercise_record_item_circle{width:10px;height:10px;background:#eee;border-radius:50%;position:absolute;left:-.38rem;top:.25rem;z-index:2;}
+    .exercise_record_item_list.active h4{color: #f17212}
+    .exercise_record_item_list.active .exercise_record_item_circle{background: #f17212!important}
+
+

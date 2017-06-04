@@ -1,0 +1,24 @@
+.personage_center_my_course_wap li{padding:10px;border-bottom:1px solid #eee}
+.personage_center_my_course_wap li .course_detail_wap{float:left;width:60%;margin-left:2%}
+.personage_center_my_course_wap li .course_detail_wap p{color:#787878;font-size:14px;padding-left:2px;margin-top:5px;font-size:14px}
+.personage_center_my_course_wap li .course_detail_wap p:nth-child(2),.personage_center_my_course_wap li .course_detail_wap p:nth-child(3){color:black;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.personage_center_my_course_wap li .course_detail_wap .tit{color:#f60}
+
+.personage_center_my_course_wap li .canvas_wap{float:right;width:50px;position:relative;text-align:center;margin-top:5%}
+.personage_center_my_course_wap li .canvas_wap .pro{width:100%;height:100%;position:absolute;left:0px;top:0px;text-align:center;line-height:52px;font-size:12px;color:f60}
+
+.record_info{display:flex;width:7.2rem;height:1.75rem;background:white;margin-bottom:.2rem}
+.record_info>div{flex:1;flex-direction:column;justify-content:center;align-items:center;display:flex}
+.record_info>div>div{display:flex;justify-content:center;align-items:center;display:flex}}
+.record_list{display:flex;flex-direction:column;width:100%;height:1.9rem}
+.record_list li{display:flex;background:white;justify-content:space-around;flex:1;padding:.2rem 0rem}
+.personage_center_my_course_wap li{padding:10px;border-bottom:1px solid #eee}
+.personage_center_my_course_wap li .course_detail_wap{float:left;width:60%;margin-left:2%}
+.personage_center_my_course_wap li .course_detail_wap p{color:#787878;font-size:14px;padding-left:2px;margin-top:5px;font-size:14px}
+.personage_center_my_course_wap li .course_detail_wap p:nth-child(2),.personage_center_my_course_wap li .course_detail_wap p:nth-child(3){color:black;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.personage_center_my_course_wap li .course_detail_wap .tit{color:#f60}
+
+.personage_center_my_course_wap li .canvas_wap{float:right;width:50px;position:relative;text-align:center;margin-top:5%}
+.personage_center_my_course_wap li .canvas_wap .pro{width:100%;height:100%;position:absolute;left:0px;top:0px;text-align:center;line-height:52px;font-size:12px;color:f60}
+
+	

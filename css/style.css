@@ -1,0 +1,83 @@
+	.fl{float: left;}
+	.ri{float: right;}
+	.clb{clear: both;}
+	a{text-decoration: none;}
+	/*首页*/
+	.index .swipe {
+			overflow: hidden;
+			visibility: hidden;
+			position: relative;
+			vertical-align: inherit;
+		}
+	.index .swipe-wrap {
+			overflow: hidden;
+			position: relative;
+		}
+	.index .swipe-wrap > div {
+			float:left;
+			width:100%;
+			position: relative;
+		}
+	.index .swipe-page{
+		width: 100%;
+		height: 4px;
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+	}
+	.index .swipe-page>ul{
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		width:100%;
+		height:4px;
+	}
+	.index .swipe-page>ul>li{
+		float: left;
+		width: 25%;
+		height: 4px;
+		list-style: none;
+		position: relative;
+		top: -5px
+	}
+	.index .swipe-page>ul>li:nth-child(1){
+		background: red;
+	}
+	/*banner*/
+	.index .banner{
+		overflow: hidden;
+		background: white;
+	}
+	.index .banner ul{
+		overflow: hidden;
+		margin-left:5%;
+		padding:10px 0;
+	}
+	.index .banner li{
+		width: 33.3%;
+		float: left;
+		list-style: none;
+		padding:6px 0;
+	}
+	.index .banner .imgwap{
+		width: 50%;
+		padding: 5%;
+		text-align: center;
+		float:left;
+	}
+	.index .banner p{
+		width:50%;
+		text-align:left;
+		font-size: 13px;
+		float:left;
+		padding-top:9%;
+		color:#717171;
+	}
+	
+	.course .product-list{border-bottom: 1px solid #51A9B0;position: relative;font-size: 12px;}
+    .course .product-tit{margin:5px 0px 5px 10px;padding-right: 35px; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color: #118B95;font-family:  "微软雅黑";font-weight: 600}
+    .course .product-details{border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background-color: white;padding:5px 10px 20px 10px}
+    .course .product-pic,.product-det{width: 50%;height: 90px}
+    .course .product-det{padding-left: 10px;padding-top: 5px}
+    .course .product-det>p{margin-bottom: 0px;color:#727171;font-family: "微软雅黑"; overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+    .course .product-pic img{width: 100%}

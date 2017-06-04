@@ -1,0 +1,151 @@
+.course_detail_div{padding-top:280px;position:relative}
+.course_detail_div .img_wap{position:relative;height:200px;z-index:4;background:black}
+.course_detail_div .img_wap .start_img{position:absolute;width:60px;height:60px;left:50%;top:50%;margin-left:-30px;margin-top:-30px;z-index:3}
+.course_detail_div .img_wap .banner{position:absolute;width:100%;height:100%;left:0px;top:0px;z-index:2;}
+.course_detail_div .time_share_wap{position:absolute;width:100px;height:45px;left:50%;top:50%;margin-left:-50px;margin-top:-30px;background:rgba(0,0,0,.7);padding:10px;text-align:center;z-index:5;border-radius:10px;display:none}
+.course_detail_div .time_share_wap .timer{font-size:12px;color:white}
+.course_detail_div .time_share_wap .share_all{width:100%;height:2px;background:white;margin-top:4px;}
+.course_detail_div .time_share_wap .share_now{height:2px;background:#f60;width:0%}
+.course_detail_div .img_wap video{width:100%;height: 200px}
+.course_detail_div .img_wap .video_controls{position:absolute;left:0px;bottom:0px;width:100%;height:40px;background:rgba(0,0,0,.7);display:none}
+.video_controls .v_start,.video_controls .fullscreen{color:white;height:38px;line-height:37px;width:10%;text-align:center;font-size:18px;}
+.video_controls .now_time,.video_controls .all_time{color:white;height:40px;line-height:43px;width:10%;text-align:center;font-size:12px;}
+.video_controls .all_time{margin-left:5%}
+.video_controls .play_progress{height:2px;background:#787878;width:100%;margin-top:19px;margin-left:5%;position:relative;margin-bottom:19px}
+.video_controls .play_progress .progress_con{height:2px;width:0%;background:white}
+.video_controls .play_progress .progress_ball{position:absolute;left:0px;top:-4px;width:9px;height:9px;background:white;border-radius:100%;}
+
+.video_controls .fullscreen{line-height:38px;font-size:12px}
+
+.course_detail_div .function_control_wap{background:black;height:39px;padding:0px 10px}
+.course_detail_div .function_control_wap span{font-size:12px;color:#eee;}
+.course_detail_div .function_control_wap .outline_play,.course_detail_div .function_control_wap .store,.course_detail_div .function_control_wap .share{height:39px;text-align:center;padding-top:3px;margin-right:10px}
+.course_detail_div .function_control_wap .outline_play img,.course_detail_div .function_control_wap .store img,.course_detail_div .function_control_wap .share img{height:16px;}
+.course_detail_div .function_control_wap p{font-size:12px;color:#787878;line-height: 15px}
+.course_detail_div .function_control_wap .person_total{color:#787878;height:39px;line-height:39px;}
+.course_detail_div .function_control_wap .store,.course_detail_div .function_control_wap .share{margin-right:20px}
+
+
+.course_detail_div .tab_title{width:100%;background:#fff;}
+.course_detail_div .tab_intro,.course_detail_div .tab_syllabus,.course_detail_div .tab_discuss{color:#717171;text-align:center;padding-top:10px;padding-bottom:10px;border-bottom: 1px solid #e5e5e5;float:left;height:41px}
+.tab_title .active{border-bottom:1px solid #f7762a;color:#f7762a;}
+.course_detail_div .tab_title .tab_intro{width:33%}
+.course_detail_div .tab_title .tab_syllabus{width:34%;}
+.course_detail_div .tab_title .tab_discuss{width:33%;}
+
+.course_detail_div .tab_title .tab_intro div,.course_detail_div .tab_title .tab_syllabus div{font-size:14px;border-right:1px solid #e5e5e5;height:20px;line-height:20px}
+.course_detail_div .tab_title .tab_discuss div{font-size:14px}
+.intro_course  img{width: 100%}
+
+.course_detail_div .tab_cont{position:relative;background:#f7f7f7;overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;
+-webkit-transform:translateZ(0);}
+.course_detail_div .inntro_cont h4{font-size:16px;font-weight:800;width:100%;padding-top:5%;padding-bottom:2%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#333}
+.course_detail_div .inntro_cont p{font-size:13px;color:#717171;line-height:25px}
+.course_detail_div .inntro_cont>p{font-size:16px;}
+.course_detail_div .inntro_cont>div{background:#fff;margin-bottom:10px;}
+.course_detail_div .inntro_cont>div:last-child{margin-bottom:0;}
+.course_detail_div .inntro_cont h3{font-size:16px;}
+.course_detail_div .inntro_cont .inntro_price{padding:2% 0;border-bottom:1px solid #ddd}
+.course_detail_div .inntro_cont .inntro_time{padding-bottom:1%;padding-top:3%}
+.course_detail_div .inntro_cont dt{width:40px;height:60px;border-radius:50%;margin-right:6px;}
+.course_detail_div .inntro_cont dt img{padding:10px 0;}
+.course_detail_div .inntro_cont dd{margin-right:10px;margin-top:12px;font-size:13px;color:#717171;}
+.course_detail_div .inntro_cont dd span{font-size:13px;font-weight:700;}
+
+.course_detail_div .inntro_cont .intro_course h3{padding-top:5%;padding-bottom:3%;}
+/*课程表*/
+
+.course_detail_div .course_free ul li,.course_buy li,.course_buy .course_z{border-bottom:1px solid #f7f7f7;}
+.course_detail_div .course_buy{background:#fff;padding-bottom:50px;}
+.course_detail_div .course_buy .course_buy_play ul{display:none}
+
+
+/*0级*/
+.z0 .z0_tit{height: 50px;line-height: 50px;color: #717171;background: #f7f7f7;padding-left: 30px;position: relative;font-size: 14px;cursor: pointer;}
+.z0 .z0_tit span{position: absolute;font-size: 14px;top: 0px;left: 15px;color: #313131;font-weight: 600}
+.z0 .z0_tit i{font-size:22px;position:absolute;right:3%;top:50%;margin-top:-11px;}
+.z0 .ke:last-child{border-bottom: none}
+/*1级*/
+.z1{border-bottom: 1px solid #eee;display: none;padding-left: 16px}
+.z0:last-child>.z1{padding-bottom: 0px;}
+
+.z1 .z1_tit{position: relative;border-bottom: 1px solid #eee}
+.z1 .z1_tit img{}
+.z1 .z1_tit span{color: #313131}
+.z1 .ke:last-child{border-bottom: none}
+
+/*2级*/
+.z2{display: none}
+.z2 .z2_tit{position: relative;border-bottom: 1px solid #eee}
+.z1 .z2:last-child>.z2_tit{border-bottom: none}
+.z2 .ke:last-child{border-bottom: none}
+.z2 .z2_tit img{}
+/*3级*/
+.z3{display: none}
+.z3 .z3_tit{position: relative;
+border-bottom: 1px solid #eee}
+.z2 .z3:last-child>.z3_tit{border-bottom: none}
+.z3 .ke:last-child{border-bottom: none}
+.z3 .z3_tit img{}
+/*4级*/
+.z4{display: none}
+.z4 .z4_tit{position: relative;
+border-bottom: 1px solid #eee}
+.z3 .z4:last-child>.z4_tit{border-bottom: none}
+.z4 .ke:last-child{border-bottom: none}
+.z4 .z4_tit img{}
+/*5级*/
+.z5{display: none}
+
+
+.z0 .tit{padding: 12px 0px;cursor: pointer;}
+.z1 .tit img{width: 15px;}
+.z1 .tit span{margin-left: 5px}
+.z3 .tit span,.z4 .tit span,.z5 .tit span{margin-left: 10px}
+
+						
+.z0 .ke img{width: 15px;float:left;margin-left:15px;margin-top:2px}
+.z0 .ke span{float:left;width:35px;background: #f60;border-radius: 10px;color: white;font-size: 12px;text-align: center;height: 20px;line-height: 20px}
+.z0 .ke p{margin-left: 40px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;color: #898989;font-size: 14px}
+.z0 .icon{color: #ccc;float: right;margin-right: 20px}
+.z2,.z3,.z4,.z5{padding-left: 20px;display: none}
+.z0 .ke{margin-bottom:3px;padding: 10px 0px;margin-left: 20px;position: relative;border-bottom: 1px solid #eee;display: none}
+/*离线缓存*/
+.course_detail_div .outline_play_cont{position:fixed;bottom:0px;width:100%;height:500px;background:white;transform:translate(0px,500px);z-index:5;-ms-transform:translate(0px,500px);-webkit-transform:translate(0px,500px);-o-transform:translate(0px,500px);-moz-transform:translate(0px,500px);display:none}
+
+.outline_play_cont{transform:translate(0px,500px);-ms-transform:translate(0px,500px);-webkit-transform:translate(0px,500px);-o-transform:translate(0px,500px);-moz-transform:translate(0px,500px);}
+.outline_play_cont .tit{height:40px;border-bottom:1px solid #eee}
+.outline_play_cont .tit span:nth-child(1){color: #333;height:40px;line-height:40px;margin-left:10px}
+.outline_play_cont .tit span:nth-child(2){color: #787878;height:40px;line-height:40px;margin-left:10px}
+.outline_play_cont .tit select{height:18px;line-height:18px;margin-top:12px;margin-left:10px;color:#f60}
+.outline_play_cont .tit .more_icon{color:#f60;margin-left:-15px;margin-top:13px;height:14px}
+.outline_play_cont .list{height:420px;overflow-y:auto;}
+.outline_play_cont .list .study_video,.outline_play_cont .list .outline_video{padding:10px;}
+.outline_play_cont .list .study_video .cate,.outline_play_cont .list .outline_video .cate{font-size:12px;}
+.outline_play_cont .list .study_video .list_p,.outline_play_cont .list .outline_video .list_p{position:relative;padding-left:25px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px solid #eee;height:40px;line-height:40px}
+.outline_play_cont .list .study_video .list_p i,.outline_play_cont .list .outline_video .list_p i{position:absolute;left:0px;top:0px;font-size:20px;width:30px;height:40px;line-height:40px;color:#f60}
+.outline_play_cont .list .slect_all,.outline_play_cont .list .begin_store{width:50%;height:30px;line-height:30px;text-align:center;font-size:12px;margin:5px 0px}
+.outline_play_cont .tit .close{height:40px;line-height:40px;width:40px;text-align:center;font-size:14px}
+.outline_play_cont .list .con_wap{position:fixed;bottom:0px;width:100%;height:40px;background:rgb(51,51,51)}
+.outline_play_cont .list .begin_store{color:white;}
+.outline_play_cont .list .slect_all{color:white;border-right:1px solid #ddd}
+
+/*.discuss_cont{min-height:400px;display:none}*/
+.discuss_cont li{margin:.2rem;margin-top:0px;padding-top:.1rem}
+.discuss_cont li .student{padding:10px;border-bottom:1px solid #eee}
+.discuss_cont li .teacher{padding-left:13%;padding-top:10px;padding-bottom:10px;border-bottom:1px solid #eee}
+.discuss_cont li .student img{width:10%}
+.discuss_cont li .student div{width:5.7rem;margin-left:3%;padding-top:3px;}
+.discuss_cont li .student div p:nth-child(2){margin-top:10px;text-align:justify}
+.discuss_cont li .teacher p{text-align:justify;padding:0px 10px}
+.discuss_cont li .teacher span{color:#f60}
+.goto_discuss{position:fixed;bottom:0px;z-index:4;line-height:40px;text-align:center;background:rgb(254,241,231);color:#f60;width:100%;height:40px}
+.course_detail_div .last_tit{position:absolute;width:100%;height:39px;background:rgba(0,0,0,.7);z-index:666;left:0px;bottom:0px;padding-left:10px;display:none}
+.course_detail_div .last_tit span{line-height:39px;color:#ccc;}
+.course_detail_div .last_tit span:nth-child(2){position:relative;top:1px}
+.course_detail_div .back{position:absolute;left:0px;top:0px;width:60px;height:60px;text-align:center;z-index:3}
+.course_detail_div .back i{color:white;font-size:16px;line-height:30px;width:30px;border-radius:100%;background:rgba(0,0,0,.4);margin-top:15px}
+.course_detail_div .show_tit{position:absolute;padding:0px 40px;width:100%;height:60px;line-height:60px;color:white;font-size:16px;text-align:center;z-index:3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.go_to_buy{width:85px;height:25px;line-height:23px;background:white;text-align:center;color:#f60!important;font-family:微软雅黑;border-radius:30px;border:1px solid #f60;}
+
+

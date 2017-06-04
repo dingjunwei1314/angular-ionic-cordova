@@ -1,0 +1,14 @@
+.course_list_page_course_list_ul{padding-bottom:20px}
+.course_list_page_course_list_ul li{background:white;width:6.84rem;height:2.7rem;background:white;margin:0rem 0.18rem;margin-top:0.2rem;padding:0.2rem}
+.course_list_page_course_list_ul .course_wap{padding-bottom:0.2rem;border-bottom:1px solid #eee}
+.course_list_page_course_list_ul .img_wap{float:left;width:2.25rem;height:1.5rem;}
+.course_list_page_course_list_ul .img_wap img{width:100%;height:100%}
+.course_list_page_course_list_ul .detail_wap{float:right;width:3.9rem;height:1.5rem;}
+
+.course_list_page_course_list_ul .detail_wap p:nth-child(1){font-family:Microsoft Yahei;font-size:0.28rem;color:#333;text-overflow: ellipsis;white-space: nowrap;width:100%;overflow:hidden}
+.course_list_page_course_list_ul .detail_wap p:nth-child(2){margin-bottom: 0px;color:#727171;font-family:Microsoft Yahei ;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:100%;font-size:0.22rem;margin-top:0.2rem}
+.course_list_page_course_list_ul .detail_wap p:nth-child(3){margin-bottom: 0px;color:#727171;font-family:Microsoft Yahei;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:0.22rem;margin-top:0.2rem}
+
+.course_list_page_course_list_ul .num_wap{height:0.7rem}
+.course_list_page_course_list_ul .num_wap span:nth-child(1){color:rgb(235,87,48);font-size:0.26rem;line-height:0.7rem}
+.course_list_page_course_list_ul .num_wap .num{font-size:12px;float:right;line-height:0.7rem;color:#999}
